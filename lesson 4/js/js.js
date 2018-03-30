@@ -1,26 +1,26 @@
-var budget
-var shopName
-var time
-var open
-var shopGoods = [];
-var price = 100;
-var time = 10;
+var budget,
+	shopName,
+	time,
+	open,
+	shopGoods,
+	price = 100;
+	time = 10;
 
 
 mainList = {
 	budget,
-	shopName,
-	shopGoods ,
-	employers: {},
+	shopName: "",
+	shopGoods: [],
+	employars: {},
 	open: false,
 	discount: true,
 	chooseItemShopGoods: [],
 	start: function start () {
 		shopName = prompt("Название Вашего магазина?", "").toUpperCase();
-		budget = prompt("Ваш бюджет?", "");
+		mainList.budget = prompt("Ваш бюджет?", "");
 
 		while (isNaN(budget) || budget == "" || budget == null) {
-			budget = prompt("Ваш бюджет?");
+			mainList.budget = prompt("Ваш бюджет?");
 		}	
 	},
 	chooseGoods: function chooseGoods () {
@@ -61,21 +61,21 @@ mainList = {
 	dayBadget: function dayBadget(budget) {
 		alert("Ваш бюджет на один день состовляет " + budget / 30);
 	},
-	chooseEmployers: function chooseEmployers () {
+	chooseEmployars: function chooseEmployars () {
 
-		for (let j = 0; j < 4; j++ ) {
+		for (let j = 1; j < 4; j++ ) {
 
 			let employarName = prompt ("Введите Ваше имя", "");
 
 			if ((typeof(employarName)) === 'string' && (typeof(employarName)) !== null && employarName != '' && employarName.length < 50 ) {
-				console.log('все cjnhelybrb');
-				mainList.employers[j] = [j] + '-' + employarName;
+				console.log('все отлично');
+				mainList.employars[j] = j + '-' + employarName;
 			} else {
 
 				if (employarName == '') {
 					let d = confirm("Вы точно желаете оставить это поле пустым?");
 					if (d) {
-						mainList.employers[j] = '';
+						mainList.employars[j] = '';
 					} else {
 						j--;
 						alert("Введите еще раз номер и имя");
@@ -86,7 +86,7 @@ mainList = {
 		}
 	},
 	discountSystem: function discountSystem() {
-		if (mainList.discount == true) {
+		if (mainList.discount) {
 			price = (price/100)*80;
 			console.log(price);
 		}
@@ -102,7 +102,7 @@ mainList = {
 		mainList.chooseItemShopGoods.push(prompt("может добавите еще что-то",""));
 		mainList.chooseItemShopGoods.sort();
 
-		mainList.chooseItemShopGoods.forEach( function(item, i, arr){
+		mainList.chooseItemShopGoods.forEach( function(item, i){
 			console.log((i+1) + " " + item);
 			alert("У нас вы можете купить: " + (i+1) + ": "+ item);
 		});
