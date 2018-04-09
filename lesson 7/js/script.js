@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', function(){
 
 let tab = document.getElementsByClassName('info-header-tab');
+
+
 	info = document.getElementsByClassName('info-header')[0];
 	tabContent = document.getElementsByClassName('info-tabcontent')
 
@@ -10,6 +12,7 @@ let tab = document.getElementsByClassName('info-header-tab');
 		for (let i = a; i < tabContent.length; i++) {
 			tabContent[i].classList.remove('show');
 			tabContent[i].classList.add('hide');
+
 		}
 	}
 
